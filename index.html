@@ -82,18 +82,17 @@
                     <h2>Web Design</h2>
                     <p>Web design is the art of creating visually appealing and user-friendly websites that captivate and engage audiences. It combines creativity with technical expertise to deliver seamless digital experiences.
                     </p>
-                    <a href="#">Learn more</a>
+                    <a href="#portfolio">See my work</a>
                 </div>
                 <div>
                     <i class="fa-brands fa-app-store"></i>
                     <h2>App Design</h2>
                     <p>App design is the process of conceptualizing and crafting intuitive interfaces for mobile applications, focusing on user experience and functionality. It involves balancing aesthetics with usability to create engaging and efficient digital solutions.
                     </p>
-                    <a href="#">Learn more</a>
+                    <a href="#portfolio">See my work</a>
                 </div>
                 
             </div>
-
         </div>
     </div>
 
@@ -102,12 +101,12 @@
         <div class="container">
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
-                <div class="work">
+                <div class="work col1">
                     <img src="images/one.jpg" alt="chat app">
                     <div class="layer">
                         <h3>Chat App</h3>
                         <p>Developed Flutter chat app, Firebase backend (authentication, real-time database, cloud storage), and FCM for instant push notifications.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/snehakumari1112/Chat-App"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
@@ -116,7 +115,6 @@
                         <h3>E-Commerce App UI</h3>
                         <p>Crafted an intuitive and visually appealing e-commerce app UI using Flutter for seamless shopping experiences.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-
                     </div>
                 </div>
                 <div class="work">
@@ -124,13 +122,39 @@
                     <div class="layer">
                         <h3>Amazon Clone</h3>
                         <p>Built a polished Amazon replica using HTML and CSS, delivering a seamless browsing and shopping interface for users.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-
+                        <a href="https://snehakumari-amazon-clone.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
-            </div>
+                <div class="work">
+                    <img src="images/food app.png" alt="zwigato">
+                    <div class="layer">
+                        <h3>Food Delivery App UI</h3>
+                        <p>"Flutter-based food delivery app UI: Home page offers easy restaurant discovery. Item page allows quick ordering with customization. Cart page provides a clear overview for efficient checkout."</p>
+                        <a href="https://github.com/snehakumari1112/zwigato"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/weather app.png" alt="weather_app">
+                    <div class="layer">
+                        <h3>Weather App UI</h3>
+                        <p>"Our Flutter weather app UI offers a sleek design and intuitive navigation for seamless access to current conditions and extended forecasts, prioritizing clarity and user experience."</p>
+                        <a href="https://github.com/snehakumari1112/weather_app"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
 
-            <a href="#" class="btn">See More</a>
+                <div class="work">
+                    <img src="images/wallet.jpg" alt="wallet_app">
+                    <div class="layer">
+                        <h3>Wallet App UI</h3>
+                        <p>"An intuitive Flutter-based wallet app UI offering seamless navigation and secure transaction management for users on-the-go."</p>
+                        <a href="https://github.com/snehakumari1112/wallet_app_ui"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            
+
+            <div class="see-more">See More</div>
 
         </div>
     </div>
@@ -148,7 +172,7 @@
                         <a href="https://github.com/snehakumari1112"><i class="fa-brands fa-github"></i></a>    
                         <a href="https://api.whatsapp.com/send/?phone=7389987663&text&type=phone_number&app_absent=0"><i class="fa-brands fa-square-whatsapp"></i></a>                
                     </div>
-                    <a href="Sneha Resume.pdf" download class="btn btn2">Download CV</a>
+                    <a href="images/Final Resume.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
@@ -181,6 +205,7 @@
 
     </script>
 
+
     <script>
         var sidemenu = document.getElementById("sidemenu");
 
@@ -210,6 +235,36 @@
         })
       </script>
 
+<!-- <script>
+    let seeMorebtn = document.querySelector('#see-more');
+    let currentItem = 3;
+
+    seeMorebtn.onclick = () =>{
+        let boxes = [...document.querySelector('.work-list')];
+        for (var i = currentItem; i < currentItem + 3; i++){
+            boxes[i].style.display = 'inline-block';
+        }
+        currentItem += 3;
+
+        if(currentItem >= boxes.length){
+            seeMorebtn.style.display = 'none';
+        }
+    }
+</script> -->
+
+<script>
+    // Write script to show more work items
+      let seeMore = document.querySelector(".see-more");
+      let workList = document.querySelector(".work-list");
+      let workItems = document.querySelectorAll(".work");
+
+      seeMore.onclick = () => {
+        for (let i = 0; i < workItems.length; i++) {
+          workItems[i].style.display = "inline-block";
+        }
+        seeMore.style.display = "none";
+      };
+  </script>
 
 
 </body>
