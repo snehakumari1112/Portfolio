@@ -84,40 +84,6 @@ The contact form is configured in src/App.jsx and posts to:
 
 To use a different endpoint, replace the URL in the submit handler.
 
-## Resume Setup
-
-Hero button currently points to:
-
-- resume/SnehaKumari_Resume.pdf
-
-Replace this file with your latest resume while keeping the same filename, or update the link in src/App.jsx.
-
-## Favicon
-
-The favicon is configured via:
-
-- public/favicon.svg
-- index.html
-
-## Customization Guide
-
-### Update personal content
-
-Edit src/App.jsx for:
-
-- Name, tagline, and hero content
-- Experience and education timeline entries
-- Project cards and links
-- Social links and contact email
-
-### Update styles
-
-Edit src/index.css and tailwind.config.js for:
-
-- Color tokens
-- Glow and background effects
-- Typography and spacing
-
 ## Deployment
 
 This is a static frontend app and can be deployed to:
