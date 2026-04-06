@@ -111,7 +111,7 @@ const projects = [
     description:
       "A conversion-focused travel platform with responsive booking flows and polished visual storytelling for modern agencies.",
     stack: ["React", "HTML", "CSS", "Bootstrap"],
-    live: "https://visiontourandtravels.netlify.app",
+    live: "https://viewtemples.com/  ",
     code: "https://github.com/snehakumari1112"
   }
 ];
