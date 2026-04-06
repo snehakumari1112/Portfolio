@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #07070a;
+  color: #f3f4f7;
+  font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(103, 131, 255, 0.35);
+  color: #fff;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: -40%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: drift 18s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(48px, 48px, 0);
+  }
+}
+
+@layer components {
+  .section-wrap {
+    @apply mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold tracking-tight text-white md:text-3xl;
+  }
+
+  .section-kicker {
+    @apply mb-4 inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/60;
+  }
+
+  .glass {
+    @apply border border-white/15 bg-white/[0.04] backdrop-blur-xl;
+  }
+}
