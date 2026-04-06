@@ -48,7 +48,7 @@ const skills = [
   {
     title: "Tools",
     icon: Wrench,
-    items: ["Git", "Postman", "Figma", "VS Code", "GitHub", "Netlify"]
+    items: ["Git", "Postman", "Figma", "VS Code", "GitHub"]
   },
   {
     title: "Integrations",
