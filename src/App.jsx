@@ -353,7 +353,7 @@ export default function App() {
           </Reveal>
 
           <Reveal className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="public/SnehaKumari_Resume.pdf" target="_blank" rel="noreferrer">
+            <a href="/SnehaKumari_Resume.pdf" target="_blank" rel="noreferrer">
               <Button size="lg">My Resume</Button>
             </a>
             <a href="#contact">
