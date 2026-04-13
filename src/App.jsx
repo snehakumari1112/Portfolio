@@ -10,7 +10,9 @@ import {
   Github,
   Linkedin,
   Mail,
+  Menu,
   Smartphone,
+  X,
   Wrench
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -225,6 +227,7 @@ function ExperienceEducationTimeline() {
 
 export default function App() {
   const [active, setActive] = useState("about");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [submitState, setSubmitState] = useState({ type: "idle", message: "" });
@@ -328,8 +331,43 @@ export default function App() {
               </a>
             ))}
           </nav>
+
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            className="glass inline-flex h-10 w-10 items-center justify-center rounded-xl text-white transition hover:text-white md:hidden"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+
       </header>
+
+      {mobileMenuOpen ? (
+        <div
+          className="fixed inset-0 z-30 grid place-items-center bg-black/35 md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <nav
+            className="glass w-[90vw] max-w-xs rounded-2xl p-2"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block rounded-xl px-3 py-2 text-sm transition ${
+                  active === item.id ? "bg-white/12 text-white" : "text-white/70 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      ) : null}
 
       <main>
         <section id="hero" className="section-wrap pt-24 md:pt-28">
