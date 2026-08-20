@@ -30,40 +30,52 @@ const skills = [
   {
     title: "Frontend",
     icon: Code,
-    items: ["React.js", "Tailwind", "React Native", "Framer Motion", "Vite.js"]
+    items: ["React.js", "JavaScript", "Tailwind CSS", "Framer Motion", "Vite.js"]
   },
   {
     title: "Backend",
     icon: Database,
-    items: ["Node.js", "Express.js", "REST APIs"]
+    items: ["Node.js", "Express.js", "REST APIs", "Python"]
   },
   {
     title: "Mobile",
     icon: Smartphone,
-    items: ["Flutter (GetX)"]
+    items: ["Flutter (GetX)", "React Native"]
   },
   {
     title: "Databases",
     icon: Database,
-    items: ["MySQL", "Firebase"]
+    items: ["MySQL", "PostgreSQL", "Firebase"]
   },
   {
     title: "Tools",
     icon: Wrench,
-    items: ["Git", "Postman", "Figma", "VS Code", "GitHub"]
+    items: ["Git", "GitHub", "Postman", "Figma", "VS Code"]
   },
   {
     title: "Integrations",
     icon: BriefcaseBusiness,
-    items: ["Razorpay", "Shiprocket", "Reelo"]
+    items: ["Razorpay", "Shiprocket", "Reelo", "APISIX"]
   }
 ];
 
 const experienceTimeline = [
   {
+    title: "Freelance Full Stack Developer",
+    organization: "Self-Employed / Freelance",
+    period: "Jun 2025 - Present",
+    points: [
+      "Developed responsive websites for real-world clients, translating business requirements into modern, user-friendly experiences.",
+      "Built and optimized frontend interfaces using React.js, Tailwind CSS, and reusable components.",
+      "Implemented interactive features, animations, forms, and third-party integrations based on client requirements.",
+      "Managed projects independently from requirement gathering and development to testing, deployment, and post-delivery updates.",
+      "Worked directly with clients to understand their needs and deliver solutions aligned with their business goals."
+    ]
+  },
+  {
     title: "Full Stack Developer",
     organization: "Muncho Technologies (Remote)",
-    period: "Nov 2025 - Present",
+    period: "Nov 2025 - Apr 2026",
     points: [
       "Led development of a Flutter waiter management app, improving usability and workflows.",
       "Built React.js dashboard modules including QR code designer.",
@@ -99,12 +111,31 @@ const experienceEducationTimeline = [
   { ...educationItem, type: "education" }
 ];
 
-const projects = [
+const freelanceProjects = [
+  {
+    title: "The Kalash",
+    description:
+      "A polished hotel website for The Kalash, designed to showcase its stay experience and give guests a clear, engaging way to explore the property.",
+    stack: ["React.js", "Vite.js", "JavaScript", "Tailwind CSS", "Framer Motion", "Responsive UI"],
+    live: "https://the-kalash-hotel.vercel.app/",
+    code: "https://github.com/snehakumari1112/the_kalash_hotel"
+  },
+  {
+    title: "City Dental Care",
+    description:
+      "A welcoming dental website for City Dental Care, focused on presenting treatments clearly and helping patients connect with the clinic easily.",
+    stack: ["React.js", "Vite.js", "JavaScript", "Tailwind CSS", "Framer Motion", "Responsive UI"],
+    live: "https://city-dental-care-roan.vercel.app/",
+    code: "https://github.com/snehakumari1112/city-dental-care"
+  }
+];
+
+const independentProjects = [
   {
     title: "Chat Application",
     description:
       "A real-time chat experience with authentication, media support, and scalable Firebase-backed messaging pipelines.",
-    stack: ["Flutter", "Firebase", "FCM"],
+    stack: ["Flutter", "Firebase", "FCM", "Firebase Storage", "Firebase Authentication"],
     live: "https://github.com/snehakumari1112/Chat-App",
     code: "https://github.com/snehakumari1112/Chat-App"
   },
@@ -112,11 +143,71 @@ const projects = [
     title: "Travel Website",
     description:
       "A conversion-focused travel platform with responsive booking flows and polished visual storytelling for modern agencies.",
-    stack: ["React", "HTML", "CSS", "Bootstrap"],
+    stack: ["React.js", "HTML", "CSS", "Bootstrap", "Responsive UI", "API Integration"],
     live: "https://viewtemples.com/  ",
     code: "https://github.com/snehakumari1112"
   }
 ];
+
+function ProjectGroup({ title, description, projects }) {
+  return (
+    <div className="mt-12 first:mt-8">
+      <Reveal>
+        <div className="mb-6 flex flex-col gap-2 border-l-2 border-accent pl-4">
+          <h3 className="text-2xl font-semibold tracking-tight text-white">{title}</h3>
+          <p className="text-sm leading-relaxed text-white/60">{description}</p>
+        </div>
+      </Reveal>
+
+      <motion.div
+        className="grid grid-cols-1 gap-6 lg:grid-cols-2"
+        variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {projects.map((project) => (
+          <motion.div key={project.title} variants={fadeUp}>
+            <Card className="group h-full overflow-hidden hover:-translate-y-1 hover:border-white/30 hover:shadow-glow">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  {project.title}
+                  <ArrowUpRight className="h-4 w-4 text-white/45 transition group-hover:text-accent" />
+                </CardTitle>
+                <CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <Badge key={item} variant="accent">
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
+                {project.live || project.code ? (
+                  <div className="mt-4 flex gap-3">
+                    {project.live ? (
+                      <a href={project.live} target="_blank" rel="noreferrer">
+                        <Button size="sm">Live</Button>
+                      </a>
+                    ) : null}
+                    {project.code ? (
+                      <a href={project.code} target="_blank" rel="noreferrer">
+                        <Button size="sm" variant="secondary">
+                          GitHub
+                        </Button>
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 26 },
@@ -138,7 +229,7 @@ function Reveal({ children, className }) {
 }
 
 function TypeTitle() {
-  const labels = useMemo(() => ["Full Stack Developer", "Product Builder", "API + Systems Focused"], []);
+  const labels = useMemo(() => ["Full Stack Developer", "Product Builder", "API + Systems Focused", "Freelance Full Stack Developer"], []);
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
 
@@ -455,50 +546,20 @@ export default function App() {
 
         <section id="projects" className="section-wrap">
           <Reveal>
-            <p className="section-kicker">Projects</p>
-            <h2 className="section-title">Selected product-focused builds</h2>
+            <p className="section-kicker">Selected Work</p>
+            <h2 className="section-title">Projects</h2>
           </Reveal>
 
-          <motion.div
-            className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2"
-            variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {projects.map((project) => (
-              <motion.div key={project.title} variants={fadeUp}>
-                <Card className="group h-full overflow-hidden hover:-translate-y-1 hover:border-white/30 hover:shadow-glow">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {project.title}
-                      <ArrowUpRight className="h-4 w-4 text-white/45 transition group-hover:text-accent" />
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-4 flex flex-wrap gap-2">
-                      {project.stack.map((item) => (
-                        <Badge key={item} variant="accent">
-                          {item}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="flex gap-3">
-                      <a href={project.live} target="_blank" rel="noreferrer">
-                        <Button size="sm">Live</Button>
-                      </a>
-                      <a href={project.code} target="_blank" rel="noreferrer">
-                        <Button size="sm" variant="secondary">
-                          GitHub
-                        </Button>
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+          <ProjectGroup
+            title="Freelance / Client Projects"
+            description="Real websites built for businesses and clients."
+            projects={freelanceProjects}
+          />
+          <ProjectGroup
+            title="Independent Projects"
+            description="Personal and experimental projects."
+            projects={independentProjects}
+          />
         </section>
 
         <section id="contact" className="section-wrap pb-12">
